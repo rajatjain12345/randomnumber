@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click The Number</title>
+    <link rel="stylesheet" href="randomnumber.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="fun">
+        <div class="theNumber">Loading...</div>
+        <div class="numbersToClick">
+          <div class="option"></div>
+          <div class="option"></div>
+          <div class="option"></div>
+
+          <div class="option"></div>
+          <div class="option"></div>
+          <div class="option"></div>
+
+          <div class="option"></div>
+          <div class="option"></div>
+          <div class="option"></div>
+          <div class="option"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let store = [];
+      let headingnum = document.querySelector(".theNumber");
+      let optionnum = document.querySelectorAll(".option");
+      let interval = setTimeout(() => {
+        headingnum.innerHTML = Math.floor(Math.random() * 10);
+        for (let i = 0; i < optionnum.length; i++) {
+          number = Math.floor(Math.random() * 10);
+          console.log(store);
+          if (store.includes(number)) {
+            i--;
+          } else {
+            store[i] = number;
+            optionnum[i].innerHTML = store[i];
+          }
+        }
+      }, 1000);
+      console.log(headingnum);
+    </script>
+  </body>
+</html>
